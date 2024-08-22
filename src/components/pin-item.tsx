@@ -1,23 +1,30 @@
 import { Button } from './ui/button'
+import { Card } from './ui/card'
 
-const PinItem = () => {
+interface PinItemProps {
+  name: string
+  type: string
+  number: string
+}
+
+const PinItem = ({ name, type, number }: PinItemProps) => {
   return (
-    <div
-      className="border rounded-lg p-4 h-[200px] max-w-[300px] flex flex-col justify-between border-dashed shadow-sm "
-      x-chunk="dashboard-02-chunk-1"
-    >
-      <div className="flex flex-col items-center gap-1 text-center">
-        <h3 className="text-2xl font-bold tracking-tight">
-          You have no products
-        </h3>
-        <p className="text-sm text-muted-foreground">
-          You can start selling as soon as you add a product.
-        </p>
+    <Card className="py-8 px-4 lg:max-w-[300px] lg:min-w-[300px]">
+      <div className="flex flex-col items-start gap-1 text-center">
+        <h3 className="text-2xl font-bold tracking-tight">{name}</h3>
+        <div className="flex items-center justify-between w-full">
+          <p className="text-sm text-muted-foreground">
+            {type === 'class' ? 'Turma' : 'Horário'}
+          </p>
+          <p className="text-gray-500">{number}</p>
+        </div>
       </div>
       <div className="w-full flex items-center justify-end">
-        <Button className="mt-4 w-full">Ver</Button>
+        <Button className="mt-4 w-full" variant="outline">
+          Ver situação
+        </Button>
       </div>
-    </div>
+    </Card>
   )
 }
 

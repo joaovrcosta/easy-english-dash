@@ -3,6 +3,7 @@ import Sidebar from '@/components/sidebar'
 import { DataTable } from './data-table'
 import { columns, Payment } from './columns'
 import { Plus } from 'lucide-react'
+import SearchInput from '@/components/search-input'
 
 async function getData(): Promise<Payment[]> {
   return [
@@ -25,11 +26,16 @@ export default async function StudentsPage() {
       </div>
       <div className="flex flex-col">
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 ">
-          <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold md:text-2xl ">Alunos</h1>
-            <Button>
-              Novo aluno <Plus />
-            </Button>
+          <div className="flex flex-col items-start justify-between">
+            <h1 className="text-lg font-semibold md:text-2xl mb-4 text-primary">
+              Alunos
+            </h1>
+            <div className="flex w-full space-x-3">
+              <SearchInput />
+              <Button className="flex gap-3">
+                Cadastrar aluno <Plus />
+              </Button>
+            </div>
           </div>
           <section>
             <DataTable columns={columns} data={data} />

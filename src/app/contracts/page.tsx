@@ -1,23 +1,32 @@
-import Sidebar from '@/components/sidebar'
-import { DataTable } from './data-table'
-import { columns, Payment } from './columns'
-import SearchInput from '@/components/search-input'
-import { Button } from '@/components/ui/button'
-import { Plus } from 'lucide-react'
+import Sidebar from "@/components/sidebar";
+import { DataTable } from "./data-table";
+import { columns, Payment } from "./columns";
+import SearchInput from "@/components/search-input";
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { NewContractModalContent } from "@/components/modals/new-contract";
 
 async function getData(): Promise<Payment[]> {
   return [
     {
-      id: '728ed52f',
+      id: "728ed52f",
       amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
+      status: "pending",
+      email: "m@example.com",
     },
-  ]
+  ];
 }
 
 export default async function ContractsPage() {
-  const data = await getData()
+  const data = await getData();
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -32,9 +41,17 @@ export default async function ContractsPage() {
             </h1>
             <div className="flex w-full space-x-3">
               <SearchInput />
-              <Button className="flex gap-3">
-                Contrato manual <Plus />
-              </Button>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="flex gap-3">
+                    Contrato manual <Plus />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <NewContractModalContent />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
 
@@ -42,5 +59,5 @@ export default async function ContractsPage() {
         </main>
       </div>
     </div>
-  )
+  );
 }

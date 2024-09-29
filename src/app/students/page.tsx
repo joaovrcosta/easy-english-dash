@@ -1,25 +1,25 @@
-import { Button } from "@/components/ui/button";
-import Sidebar from "@/components/sidebar";
-import { DataTable } from "./data-table";
-import { columns, Payment } from "./columns";
-import { Plus } from "lucide-react";
-import SearchInput from "@/components/search-input";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { NewStudentModalContent } from "@/components/modals/new-student";
+import { Button } from '@/components/ui/button'
+import Sidebar from '@/components/sidebar'
+import { DataTable } from './data-table'
+import { columns, Payment } from './columns'
+import { Plus } from 'lucide-react'
+import SearchInput from '@/components/search-input'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { NewStudentModalContent } from '@/components/modals/new-student'
 
 async function getData(): Promise<Payment[]> {
   return [
     {
-      id: "728ed52f",
+      id: '728ed52f',
       amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      status: 'pending',
+      email: 'm@example.com',
     },
-  ];
+  ]
 }
 
 export default async function StudentsPage() {
-  const data = await getData();
+  const data = await getData()
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -52,5 +52,5 @@ export default async function StudentsPage() {
         </main>
       </div>
     </div>
-  );
+  )
 }

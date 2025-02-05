@@ -1,6 +1,15 @@
-import Sidebar from '@/components/sidebar'
-import PinItem from '@/components/pin-item'
-import { Card } from '@/components/ui/card'
+import Sidebar from "@/components/sidebar";
+import PinItem from "@/components/pin-item";
+import { Card } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { DefaultChartPayment } from "@/components/charts/payments-default";
+import { ProfitChart } from "@/components/charts/profit-chart";
 
 export default function DashboardPage() {
   return (
@@ -30,17 +39,41 @@ export default function DashboardPage() {
             </h1>
           </div>
 
-          <div className="flex space-x-3">
-            <Card className="w-full p-4">
-              <h1>Lucros</h1>
-            </Card>
+          <div>
+            <Select>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Mês" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Dezembro</SelectItem>
+                <SelectItem value="dark">Novembro</SelectItem>
+                <SelectItem value="system">Outubro</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="w-full flex gap-4">
+              <Card className="w-full p-4">
+                <DefaultChartPayment />
+              </Card>
 
-            <Card className="w-full p-4">
-              <h1>Lucros</h1>
-            </Card>
+              <Card className="w-full p-4">
+                <ProfitChart />
+              </Card>
+            </div>
+
+            <div className="w-full flex gap-4">
+              <Card className="w-full p-4">
+                <DefaultChartPayment />
+              </Card>
+
+              <Card className="w-full p-4">
+                <ProfitChart />
+              </Card>
+            </div>
           </div>
         </main>
       </div>
     </div>
-  )
+  );
 }

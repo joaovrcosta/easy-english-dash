@@ -5,23 +5,28 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Button } from './ui/button'
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "./ui/button";
 import {
   Badge,
+  CalendarCheck,
+  CircleDollarSign,
   CircleUser,
   Home,
+  LayoutDashboard,
   LineChart,
   Menu,
   Package,
   Package2,
+  School,
   Search,
   ShoppingCart,
   Users,
-} from 'lucide-react'
-import Link from 'next/link'
+} from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   return (
@@ -37,45 +42,57 @@ const Header = () => {
           <nav className="grid gap-2 text-lg font-medium">
             <Link
               href="#"
-              className="flex items-center gap-2 text-lg font-semibold"
+              className="flex items-center gap-2 text-lg font-semibold mb-4"
             >
-              <Package2 className="h-6 w-6" />
-              <span className="sr-only">Acme Inc</span>
+              <Image
+                src="/logo-easy-red.svg"
+                width={32}
+                height={32}
+                alt="Easy English"
+              />
+              <span className="text-primary font-bold">Easy Alvim</span>
             </Link>
             <Link
               href="#"
               className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
             >
-              <Home className="h-5 w-5" />
+              <LayoutDashboard className="h-5 w-5" />
               Dashboard
             </Link>
             <Link
               href="#"
               className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
             >
-              <ShoppingCart className="h-5 w-5" />
-              Orders
-            </Link>
-            <Link
-              href="#"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
-              <Package className="h-5 w-5" />
-              Products
-            </Link>
-            <Link
-              href="#"
-              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-            >
               <Users className="h-5 w-5" />
-              Customers
+              Alunos
+            </Link>
+            <Link
+              href="#"
+              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+            >
+              <School className="h-5 w-5" />
+              Turmas
+            </Link>
+            <Link
+              href="#"
+              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+            >
+              <CalendarCheck className="h-5 w-5" />
+              Horários
+            </Link>
+            <Link
+              href="#"
+              className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+            >
+              <CircleDollarSign className="h-5 w-5" />
+              Pagamentos
             </Link>
             <Link
               href="#"
               className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
             >
               <LineChart className="h-5 w-5" />
-              Analytics
+              Contratos
             </Link>
           </nav>
         </SheetContent>
@@ -97,7 +114,7 @@ const Header = () => {
         </DropdownMenuContent>
       </DropdownMenu>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

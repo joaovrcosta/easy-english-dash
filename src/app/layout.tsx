@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-import Sidebar from "@/components/sidebar";
 
 const inter = Nunito_Sans({ subsets: ["latin"] });
 
@@ -19,15 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-          <aside className="hidden border-r bg-muted/40 md:block">
-            <Sidebar />
-          </aside>
-          <div className="flex flex-col w-full">
-            <Header />
-            <main className="flex flex-1 flex-col">{children}</main>
-          </div>
-        </div>
+        <main>{children}</main>
       </body>
     </html>
   );

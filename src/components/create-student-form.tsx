@@ -1,4 +1,4 @@
-import { Input } from './ui/input'
+import { Input } from "./ui/input";
 
 export function CreateStudentForm() {
   return (
@@ -33,7 +33,6 @@ export function CreateStudentForm() {
         </div>
         <div className="flex space-x-2">
           <Input id="nationality" type="text" placeholder="Nacionalidade" />
-          <Input id="sex" type="text" placeholder="Sexualidade" />
         </div>
       </div>
       <div className="mt-3 space-y-2">
@@ -67,5 +66,5 @@ export function CreateStudentForm() {
         </div>
       </div>
     </>
-  )
+  );
 }
